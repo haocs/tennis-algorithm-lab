@@ -1,0 +1,8 @@
+data/
+recordings/
+feedback/
+.env
+*.mp4
+*.mov
+*.MOV
+*.sqlite3*

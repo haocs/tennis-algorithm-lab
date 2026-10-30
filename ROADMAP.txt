@@ -1,0 +1,21 @@
+TENNIS ALGORITHM IMPROVEMENT — FUTURE PROJECT
+
+Status: Not implemented. Current processing uses the conservative practice-pose-v1 detector.
+
+1. Add review feedback for inaccurate or poor cuts.
+2. Support reasons: missed stroke, unnecessary downtime, start too late, end too early, other.
+3. Optionally capture corrected original-video intervals and missed activity.
+4. Persist source SHA-256, stable clip ID, original boundaries, algorithm version,
+   feedback revision, and visitor identity only if supported identity is available.
+5. Review feedback before using it as training/evaluation evidence.
+6. Build an evaluation set covering side/back angles, different players,
+   lighting, occlusion, shadow swings, ball collection, and multiple nearby people.
+7. Measure missed play, retained downtime, and start/end boundary quality.
+8. Compare new detectors against the same reviewed set before replacing the current one.
+9. Keep raw private recordings outside Git. Use consented/synthetic fixtures and
+   anonymized metadata in any shareable repository.
+10. Define dataset and pipeline integration contracts. This repository is the
+    separate planning project; implementation and evaluation remain future work.
+
+The initial website deliberately does not perform automatic retraining or claim
+that marking a clip will immediately improve its cuts.
