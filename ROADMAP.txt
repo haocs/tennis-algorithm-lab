@@ -1,21 +1,22 @@
-TENNIS ALGORITHM IMPROVEMENT — FUTURE PROJECT
+TENNIS FEEDBACK AND EVALUATION ROADMAP
 
-Status: Not implemented. Current processing uses the conservative practice-pose-v1 detector.
+Updated 2026-11-02. Documentation only; implementation is planned.
 
-1. Add review feedback for inaccurate or poor cuts.
-2. Support reasons: missed stroke, unnecessary downtime, start too late, end too early, other.
-3. Optionally capture corrected original-video intervals and missed activity.
-4. Persist source SHA-256, stable clip ID, original boundaries, algorithm version,
-   feedback revision, and visitor identity only if supported identity is available.
-5. Review feedback before using it as training/evaluation evidence.
-6. Build an evaluation set covering side/back angles, different players,
-   lighting, occlusion, shadow swings, ball collection, and multiple nearby people.
-7. Measure missed play, retained downtime, and start/end boundary quality.
-8. Compare new detectors against the same reviewed set before replacing the current one.
-9. Keep raw private recordings outside Git. Use consented/synthetic fixtures and
-   anonymized metadata in any shareable repository.
-10. Define dataset and pipeline integration contracts. This repository is the
-    separate planning project; implementation and evaluation remain future work.
+docs/SYSTEM-DESIGN.md: architecture, ownership, contracts, storage and retention.
+docs/ALGORITHM-SPEC.md: formulas, signals, model specifications and process.
+docs/MILESTONES.md: dependencies, owners and verifiable acceptance criteria.
 
-The initial website deliberately does not perform automatic retraining or claim
-that marking a clip will immediately improve its cuts.
+M0 Freeze contracts and ownership.
+M1 Collect overall-clip and original-timeline feedback with review context.
+M2 Freeze a reviewed benchmark and measure the current detector.
+M3 Reuse observations/features and evaluate predictions without rendering videos.
+M4 Compare tracked-player and temporal-rule candidates, then explicitly promote.
+M5 Enforce NAS/local retention and recovery before unattended experiments.
+M6 Add optional AI annotation assistance after measuring agreement and review time.
+
+The lab owns formulas, signals, model specifications and evaluation procedure/code.
+NAS server owns shared research records and scheduling; independent workers compute;
+website owns review interaction and its existing likes/courts/preferences.
+
+Model training is deferred. Keep private recordings, annotations, locations,
+configuration and model artifacts outside public Git repositories.
